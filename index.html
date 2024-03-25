@@ -1,1 +1,86 @@
-<p>hello</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图</title>
+		<link rel="stylesheet" href="css/ssd.css">
+		
+	</head>
+	
+	<body>
+		<div class="biankuang" onmouseover="stop();" onmouseout="bofang();">
+			<div class="tupian">
+				<img src="css/drgon.jpg" alt="">
+				<img src="css/shumysta.jpg" alt="">
+				<img src="css/xyj3.jpg" alt="">
+				
+				<button class="prev"  onmousedown="stop();" onclick="plusSlides(-1)"> &lt; </button>
+				<button class="next" onmousedown="stop();" onclick="plusSlides(1)"> &gt; </button>
+			</div>
+			
+			<!-- 轮播指示器 ，span圆点，跟那个按钮botton一个特性的-->
+			<div class="yuandian" >
+				<span onmouseover="hoverSlide(1)">1</span>
+				<span onmouseover="hoverSlide(2)">2</span>
+				<span onmouseover="hoverSlide(3)">3</span>
+				
+			</div>
+		</div>
+		
+			
+		<script>
+			
+			   var index = 0; // 当前显示图片的索引
+			   var slides = document.querySelectorAll('.tupian img'); // 获取所有图片元素
+			   var time = 2000; // 轮播间隔时间，单位毫秒
+			   var timer;// 存储定时器的引用
+						
+			   function showSlide() {
+			     // 隐藏所有图片
+			    for (var i = 0; i < slides.length; i++) {
+			       slides[i].style.display = 'none';
+			     }
+			     // 显示当前索引对应的图片
+			     slides[index].style.display = 'block';
+			     
+				 index=(++index)%slides.length;
+			   }
+						
+			  
+			
+			function plusSlides(n){
+							     stop(); // 停止自动轮播
+							   //  index = index + n;
+								 
+							 //if (index>=slides.length) {
+							//	 index=0;
+							// } else if(index<0){
+							 //	index=slides.length-1;
+							// }
+			//因为点击下一张和自动播放有冲突，多+1了，所以我把n删了
+				//index = (index +n + slides.length) % slides.length;		
+					index = (index  + slides.length) % slides.length;
+							 showSlide();
+							 
+			}
+			
+			function hoverSlide(n){
+				stop();
+				showSlide(index=n-1);
+			}
+			
+			// 设置定时器，每隔 time 毫秒调用 showSlide 函数
+			function bofang(){
+				timer=setInterval(showSlide, time);
+			}
+			
+			function stop(){
+				clearInterval(timer);// 清除定时器，停止自动轮播
+			}
+
+			
+			window.onload = bofang;
+			 showSlide();
+		</script>
+	</body>
+</html>
