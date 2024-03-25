@@ -1,0 +1,81 @@
+body{
+	background-image:url("5t5.jpg") ;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	
+}
+.biankuang {
+	position: relative;
+	border-style: solid;
+	border-width: 1px;
+	width: 1100px;
+	height: 600px;
+	margin: 50px 100px 30px 180px;
+	
+	 
+	
+}
+.tupian {
+	width: 100%;
+	height: 100%;
+	
+	position: relative;
+	display: flex;
+}
+.tupian img{
+	display: none;
+	width: 100%;
+	height: 100%;
+	flex-shrink: 0;
+	object-fit: cover;
+	
+}
+.prev,.next{
+	width: 55px;
+	height: 50px;
+	background-color:#DCDCDC ;
+	cursor: pointer;
+	color: black;
+	font-size: 2.5em;
+	border-radius: 4px;
+	border: none;
+	
+	top: 40%;
+}
+.prev{
+	position: fixed;
+	left:100px;
+}
+.next{
+	position: fixed;
+	right: 100px;
+}
+.prev:hover,.next:hover{
+	background-color: rgba(0,0,0,0.6);
+}
+.yuandian {
+    position: absolute;
+    text-align: right; /* 控制文本在容器中的水平对齐方式 */  
+	
+    border: none;
+	bottom: 5px; /* 距离底部的距离 */
+	right: 10px; /* 距离右侧的距离 */
+	display: flex;
+}
+
+.yuandian span {
+    display: inline-block;
+    width: 15px;
+    height:15px; /* 调整圆点的大小 */
+    background-color: #DCDCDC;
+    border-radius: 50%;
+    border: 1px solid #000; /* 添加边框样式 */
+	 line-height: 15px;
+	    text-align: center;
+	    margin-left: 1px; /* 调整文本和圆点之间的间距 */
+		}
+.yuandian span:hover{
+	background-color: rgba(0,0,0,0.6);
+	cursor: pointer;
+}
